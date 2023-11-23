@@ -11,7 +11,6 @@ const StyledBlock = styled.div<BlockProps>`
   height: ${(props) => props.height};
   cursor: ${(props) => props.onClick && "pointer"};
 `;
-
 function Block({ height, onClick }: BlockProps) {
   return <StyledBlock height={height} onClick={onClick} />;
 }
