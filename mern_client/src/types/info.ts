@@ -1,4 +1,4 @@
-export type info = {
+export type Info = {
   id: number;
   addressName: string;
   placeName: string;
