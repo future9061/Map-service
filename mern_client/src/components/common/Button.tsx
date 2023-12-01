@@ -20,6 +20,7 @@ const StyledButton = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+
   background: none;
   padding: 0;
   cursor: pointer;

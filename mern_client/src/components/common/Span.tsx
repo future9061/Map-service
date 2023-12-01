@@ -13,6 +13,7 @@ interface SpanProps {
 
 const StyledSpan = styled.span<SpanProps>`
   color: ${(props) => props.color || "black"};
+
   &.small {
     font-size: 0.8rem;
   }
@@ -26,7 +27,6 @@ const StyledSpan = styled.span<SpanProps>`
     font-weight: bold;
   }
 `;
-
 function Span({ children, size = "normal", color }: SpanProps) {
   return (
     <StyledSpan className={size} color={color}>

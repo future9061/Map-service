@@ -1,12 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-//children
-//name
-//value
-//onChange
-//onSubmit
-
 interface InputProps {
   children?: React.ReactNode;
   name?: string;
