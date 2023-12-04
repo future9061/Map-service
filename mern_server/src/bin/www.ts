@@ -5,15 +5,30 @@
  */
 import app from '../app';
 import debug from 'debug';
-
+import dotenv from 'dotenv';
 import http from 'http';
+import mongoose from 'mongoose';
+dotenv.config({ path: '.env.local' }); //경로가 다르기 때문에 경로 넣어줌
 
 /**
  * Get port from environment and store in Express.
  */
 
 const port = normalizePort('3001');
+
 app.set('port', port);
+
+const { MONGO_ID, MONGO_PW, DB_PORT, DB_IP } = process.env;
+mongoose
+  .connect(
+    `mongodb://${MONGO_ID}:${MONGO_PW}@${DB_IP}:${DB_PORT}/mern?authMechanism=DEFAULT&authSource=admin`
+  )
+  .then(() => {
+    console.log('몽고db 연결 성공');
+  })
+  .catch((err) => {
+    console.log(`몽고db 연결 실패 ${err}`);
+  });
 
 /**
  * Create HTTP server.
