@@ -1,0 +1,5 @@
+db.auth("mern","merntest")
+db.getUsers()
+show users
+use admin
+use admonon
