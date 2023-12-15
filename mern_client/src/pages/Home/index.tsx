@@ -3,17 +3,22 @@ import Navigation from "../../components/Navigation";
 import MapContainer from "../../components/MapContainer";
 import { infosAtom } from "../../atoms/info";
 import { useSetAtom } from "jotai";
-import { infos } from "../../data/infors";
+
 import MarkersContainer from "../../components/MarkersContainer";
+import { useQuery } from "react-query";
+import { getInfos } from "../../apis/info";
 
 function Home() {
   const setInfos = useSetAtom(infosAtom);
 
-  useEffect(() => {
-    if (infos) {
+  const { status } = useQuery("infos", getInfos, {
+    select: (result) => result.data.data,
+    onSuccess: (infos) => {
       setInfos(infos);
-    }
-  }, []);
+    },
+  });
+
+  if (status === "loading") return <></>;
 
   return (
     <>
